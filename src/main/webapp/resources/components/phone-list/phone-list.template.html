@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-md-12">
+      <!--Body content-->
+	     
+		  <div class="col-md-4" ng-repeat="phone in $ctrl.phones">
+		  	<div>
+		  		<a href="#!/phones/{{phone.id}}" class="thumb">
+            	<img style="width:100%;" ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+          	</a>
+		  	</div>
+          	<div style="text-align: center;">
+          		<a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+		    	<p>{{phone.snippet}}</p>
+          	</div>		    
+		  </div>
+
+    </div>
+  </div>
+</div>
