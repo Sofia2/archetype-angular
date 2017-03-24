@@ -4,15 +4,15 @@
     <div class="col-md-12">
       <!--Body content-->
 	     
-		  <div class="col-md-4" ng-repeat="phone in $ctrl.phones">
+		  <div class="col-md-4" ng-repeat="phoneWrapper in $ctrl.phones">
 		  	<div>
-		  		<a href="#!/phones/{{phone.id}}" class="thumb">
-            	<img style="width:100%;" ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+		  		<a href="#!/phones/{{phoneWrapper.phone.id}}" class="thumb">
+            	<img style="width:100%;" ng-src="{{phoneWrapper.phone.imageUrl}}" alt="{{phoneWrapper.phone.name}}" />
           	</a>
 		  	</div>
           	<div style="text-align: center;">
-          		<a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
-		    	<p>{{phone.snippet}}</p>
+          		<a href="#!/phones/{{phoneWrapper.phone.id}}">{{phoneWrapper.phone.name}}</a>
+		    	<p>{{phoneWrapper.phone.snippet}}</p>
           	</div>		    
 		  </div>
 

@@ -2,11 +2,25 @@ package com.indra.sofia2.archetype.service;
 
 import java.util.List;
 
-import com.indra.sofia2.archetype.controller.Phone;
+import com.indra.sofia2.archetype.service.bean.phone.PhoneWrapper;
 
 public interface PhoneService {
 	
-	List<Phone> getAllPhones();
-	Phone getPhone(String id);
+	/**
+	 * Get all phones
+	 * @param sessionKey
+	 * @return
+	 */
+	
+	List<PhoneWrapper> getAllPhones(String sessionKey);
+	
+	/**
+	 * Get a phone by id
+	 * @param sessionKey
+	 * @param id
+	 * @return
+	 */
+	
+	PhoneWrapper getPhone(String sessionKey, String id);
 
 }

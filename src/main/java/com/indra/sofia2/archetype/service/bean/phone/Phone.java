@@ -1,6 +1,6 @@
-package com.indra.sofia2.archetype.controller;
+package com.indra.sofia2.archetype.service.bean.phone;
 
-public class Phone {
+public class Phone  {
 	
 	private String id;
 	private String name;
