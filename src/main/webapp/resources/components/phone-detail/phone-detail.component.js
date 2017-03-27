@@ -13,9 +13,9 @@ module('phoneDetail').factory('phoneDetailFactory', ['$resource', function($reso
 angular.
 module('phoneDetail').component('phoneDetail', {
 	   templateUrl:'resources/components/phone-detail/phone-detail.template.html',
-	   controller: ['phoneDetailFactory', '$routeParams', 
-	                function PhoneDetailController(phoneDetailFactory, $routeParams) {
-		   				this.phone = phoneDetailFactory.get($routeParams.phoneId);
+	   controller: ['phoneDetailFactory', '$stateParams', 
+	                function PhoneDetailController(phoneDetailFactory, $stateParams) {
+		   				this.phone = phoneDetailFactory.get($stateParams.phoneId);
 	   				}
 	   ]
 });

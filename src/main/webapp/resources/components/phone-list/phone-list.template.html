@@ -6,12 +6,12 @@
 	     
 		  <div class="col-md-4" ng-repeat="phoneWrapper in $ctrl.phones">
 		  	<div>
-		  		<a href="#!/phones/{{phoneWrapper.phone.id}}" class="thumb">
+		  		<a ui-sref="phone({phoneId : '{{phoneWrapper.phone.id}}' })" class="thumb">
             	<img style="width:100%;" ng-src="{{phoneWrapper.phone.imageUrl}}" alt="{{phoneWrapper.phone.name}}" />
           	</a>
 		  	</div>
           	<div style="text-align: center;">
-          		<a href="#!/phones/{{phoneWrapper.phone.id}}">{{phoneWrapper.phone.name}}</a>
+          		<a ui-sref="phone({phoneId : '{{phoneWrapper.phone.id}}' })">{{phoneWrapper.phone.name}}</a>
 		    	<p>{{phoneWrapper.phone.snippet}}</p>
           	</div>		    
 		  </div>

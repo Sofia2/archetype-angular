@@ -3,7 +3,7 @@
 // Define the 'sofiaApp' module
 angular.module('sofiaApp', [
   
-  'ngRoute',
+  'ui.router',
   'phoneList',
   'phoneDetail'
 ]);

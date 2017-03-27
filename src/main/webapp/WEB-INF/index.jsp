@@ -19,7 +19,7 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-resource.min.js"></script>
 	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular-route.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 	
     <title>My Sofia AngularJS App</title>
 
@@ -86,7 +86,7 @@
     </header>
 	<div class="container-fluid" ng-app="sofiaApp">
 	
-		<div ng-view></div>
+		<ui-view></ui-view>
 	</div>
 	<!-- /container -->
 
