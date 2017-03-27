@@ -24,12 +24,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		@Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	        auth.authenticationProvider(this.authProvider);
+	        auth.authenticationProvider(this.authProvider).eraseCredentials(false);
 	    }
 		
 		@Autowired
 	    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-			auth.authenticationProvider(this.authProvider);
+			auth.authenticationProvider(this.authProvider).eraseCredentials(false);
 	    }
 
 		@Override

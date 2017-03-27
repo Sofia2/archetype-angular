@@ -45,11 +45,8 @@ public class PhoneController {
 	}
 	//https://www.future-processing.pl/blog/exploring-spring-boot-and-spring-security-custom-token-based-authentication-of-rest-services-with-spring-security-and-pinch-of-spring-java-configuration-and-spring-integration-testing/
 	@RequestMapping(value = "/phone/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public  @ResponseBody List<PhoneWrapper> list (@AuthenticationPrincipal CustomUser user,
-			@CurrentUser CustomUser userDetails) {
-
-		return phoneService.getAllPhones(user.getSessionKey());
-		
+	public  @ResponseBody List<PhoneWrapper> list (@CurrentUser CustomUser user) {
+		return phoneService.getAllPhones(user.getSessionKey());		
 	}
 	
 	@RequestMapping(value = "/phone/{id}", method = RequestMethod.GET, 
