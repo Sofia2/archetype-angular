@@ -11,12 +11,14 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.indra.sofia2.archetype.auth.CurrentUser;
 import com.indra.sofia2.archetype.auth.CustomUser;
 import com.indra.sofia2.archetype.service.PhoneService;
 import com.indra.sofia2.archetype.service.bean.phone.Phone;
@@ -43,8 +45,9 @@ public class PhoneController {
 	}
 	//https://www.future-processing.pl/blog/exploring-spring-boot-and-spring-security-custom-token-based-authentication-of-rest-services-with-spring-security-and-pinch-of-spring-java-configuration-and-spring-integration-testing/
 	@RequestMapping(value = "/phone/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public  @ResponseBody List<PhoneWrapper> list (@AuthenticationPrincipal CustomUser user) {
-		
+	public  @ResponseBody List<PhoneWrapper> list (@AuthenticationPrincipal CustomUser user,
+			@CurrentUser CustomUser userDetails) {
+
 		return phoneService.getAllPhones(user.getSessionKey());
 		
 	}

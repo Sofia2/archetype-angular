@@ -9,9 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfFilter;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import com.indra.sofia2.archetype.auth.impl.SofiaAuthenticationProvider;
@@ -19,6 +16,7 @@ import com.indra.sofia2.archetype.auth.impl.SofiaAuthenticationProvider;
 @Configuration
 @EnableWebSecurity
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+@EnableGlobalMethodSecurity(prePostEnabled=true, securedEnabled=true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 		@Autowired
@@ -27,6 +25,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		@Override
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	        auth.authenticationProvider(this.authProvider);
+	    }
+		
+		@Autowired
+	    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+			auth.authenticationProvider(this.authProvider);
 	    }
 
 		@Override
@@ -42,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .ignoringAntMatchers("/login")
                 .and()
             .formLogin()
-                .loginPage("/login.jsp").usernameParameter("username")
+                .loginPage("/login").usernameParameter("username")
                 						.passwordParameter("password")
                 						.loginProcessingUrl("/login")
                 .permitAll()
