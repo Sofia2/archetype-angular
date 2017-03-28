@@ -2,6 +2,7 @@ package com.indra.sofia2.archetype.service;
 
 import java.util.List;
 
+import com.indra.sofia2.archetype.service.bean.phone.Phone;
 import com.indra.sofia2.archetype.service.bean.phone.PhoneWrapper;
 
 public interface PhoneService {
@@ -22,5 +23,14 @@ public interface PhoneService {
 	 */
 	
 	PhoneWrapper getPhone(String sessionKey, String id);
+	
+	/**
+	 * Create a phone
+	 * @param sessionKey
+	 * @param phone
+	 * @return
+	 */
+	
+	boolean create (String sessionKey, PhoneWrapper phone);
 
 }

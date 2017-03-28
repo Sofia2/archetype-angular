@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.indra.sofia2.archetype.service.KpiService;
 import com.indra.sofia2.archetype.service.PhoneService;
+import com.indra.sofia2.archetype.service.bean.kpi.request.KpiInsertRequest;
 import com.indra.sofia2.archetype.service.bean.kpi.request.KpiQueryRequest;
 import com.indra.sofia2.archetype.service.bean.kpi.response.KpiResponse;
 import com.indra.sofia2.archetype.service.bean.phone.PhoneWrapper;
@@ -109,6 +110,32 @@ public class PhoneServiceImpl implements PhoneService{
 		}
 		PhoneWrapper phoneWrapper = (!caseWrapperList.isEmpty())?caseWrapperList.get(0) : new PhoneWrapper();
 		return phoneWrapper;
+	}
+
+	@Override
+	public boolean create(String sessionKey, PhoneWrapper phone) {
+		
+		boolean created = false;
+		
+		try {
+			
+			logger.info("create phone");
+			
+			Gson gson = new Gson();			
+			String data = gson.toJson(phone);
+			
+			KpiResponse responseQuery = kpiService.insert(new KpiInsertRequest(sessionKey, 
+														  phoneKpiOntologyName, data));
+			
+			logger.info("query result: " + responseQuery.getData());
+			
+			created = true;
+			
+		} catch (Exception e) {
+			logger.error("Error creating task exec ", e);
+		} 
+		
+		return created;
 	}
 
 }

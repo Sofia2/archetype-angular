@@ -38,6 +38,9 @@
     <script src="/resources/components/phone-detail/phone-detail.module.js"></script>
     <script src="/resources/components/phone-detail/phone-detail.component.js"></script>
     
+    <script src="/resources/components/phone-create/phone-create.module.js"></script>
+    <script src="/resources/components/phone-create/phone-create.component.js"></script>
+    
     <script src="/resources/app.module.js"></script>
     <script src="/resources/app.config.js"></script>
     

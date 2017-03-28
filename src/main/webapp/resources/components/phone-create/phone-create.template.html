@@ -1,0 +1,55 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+  		<a ui-sref="phones" ui-sref-active="active">Go home</a>
+  	</div>
+	<div class="row">
+		<div>
+			<div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+					<h3>Create new phone</h3>
+				</div>
+			</div>
+			
+			<form ng-submit="processForm()" class="form-horizontal" role="form">
+			
+				<div class="form-group">
+				    <label class="col-sm-2 control-label">Id</label>
+				    <div class="col-sm-10">
+				    	<input name="id" id="id" type="text" ng-model="id" placeholder="Enter Id" required class="form-control"/>
+				    </div>
+				</div>
+				
+				<div class="form-group">
+				    <label class="col-sm-2 control-label">Name</label>
+				    <div class="col-sm-10">
+				    	<input name="name" id="name" type="text" ng-model="name" placeholder="Enter Name" required class="form-control"/>
+				    </div>
+				</div>
+				
+				<div class="form-group">
+				    <label class="col-sm-2 control-label">Snippet</label>
+				    <div class="col-sm-10">
+				    	<input name="snippet" id="snippet" type="text" ng-model="snippet" placeholder="Enter Snipped" required class="form-control"/>
+				    </div>
+				</div>
+				
+			 	<div class="form-group">
+				    <label class="col-sm-2 control-label">ImageUrl</label>
+				    <div class="col-sm-10">
+				    	<input name="imageUrl" id="imageUrl" type="text" ng-model="imageUrl" placeholder="Enter Image url" required class="form-control"/>
+				    </div>
+				</div> 
+				<div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" id="submit" class="btn btn-primary">Create</button>
+				    </div>
+				</div>
+				
+				 
+			
+			</form>
+		</div>
+	</div>
+</div>

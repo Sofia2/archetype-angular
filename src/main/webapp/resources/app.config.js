@@ -24,6 +24,9 @@ angular.
       .state('phone', {
           url:'/phone/:phoneId',
           template: '<phone-detail></phone-detail>'
+      }).state('create', {
+          url: '/create',
+          template: '<phone-create></phone-create>'
       });
       
       

@@ -1,15 +1,14 @@
 package com.indra.sofia2.archetype.controller;
 
-import java.security.Principal;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,19 +27,6 @@ public class PhoneController {
 	@Autowired
 	private PhoneService phoneService;
 	
-	@RequestMapping("/user")
-	public Principal user(Principal user) {
-		return user;
-	}
-	
-	@RequestMapping("/resource")
-	public Map<String,Object> home() {
-		Map<String,Object> model = new HashMap<String,Object>();
-		model.put("id", UUID.randomUUID().toString());
-		model.put("content", "Hello World");
-		return model;
-	}
-
 	@RequestMapping(value = "/phone/list", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public  @ResponseBody List<PhoneWrapper> list (@CurrentUser CustomUser user) {
 		return phoneService.getAllPhones(user.getSessionKey());		
@@ -51,6 +37,17 @@ public class PhoneController {
 	public  @ResponseBody Phone detail (@AuthenticationPrincipal CustomUser user, @PathVariable(value="id")String id) {		
 		
 		return phoneService.getPhone(user.getSessionKey(), id).getPhone();
+	}
+	
+	@RequestMapping(value = "/phone/create", method = RequestMethod.POST, 
+			produces = MediaType.APPLICATION_JSON_UTF8_VALUE, 
+			consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public  @ResponseBody Map<String, Boolean> create (@CurrentUser CustomUser user, @RequestBody Phone phone) {
+		
+		PhoneWrapper wrapper = new PhoneWrapper();
+		wrapper.setPhone(phone);
+		boolean created = phoneService.create(user.getSessionKey(), wrapper);
+		return Collections.singletonMap("created", created);		
 	}
 
 }
