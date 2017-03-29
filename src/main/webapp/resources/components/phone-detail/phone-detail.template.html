@@ -14,6 +14,9 @@
       		<h2>{{$ctrl.phone.name}}</h2>
 	  		<p>{{$ctrl.phone.snippet}}</p>
       	</div>
+      	<div class="col-md-6">
+      		<button ng-click="deletePhone($ctrl.phone.id)" class="btn btn-small btn-danger">delete</button>
+      	</div>
       </div>
       
     </div>

@@ -10,6 +10,7 @@ module('phoneCreate').factory('phoneCreateFactory', ['$resource', function($reso
 	};
 }]);
 
+
 angular.
 module('phoneCreate').component('phoneCreate', {
 	   templateUrl:'resources/components/phone-create/phone-create.template.html',

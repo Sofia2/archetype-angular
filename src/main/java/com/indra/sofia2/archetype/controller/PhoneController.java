@@ -49,5 +49,13 @@ public class PhoneController {
 		boolean created = phoneService.create(user.getSessionKey(), wrapper);
 		return Collections.singletonMap("created", created);		
 	}
+	
+	@RequestMapping(value = "/phone/{id}", method = RequestMethod.DELETE, 
+					produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public  @ResponseBody Map<String, Boolean> delete (@AuthenticationPrincipal CustomUser user, @PathVariable(value="id")String id) {		
+	
+		return Collections.singletonMap("deleted", false);
+		//phoneService.getPhone(user.getSessionKey(), id).getPhone();
+	}
 
 }
