@@ -4,7 +4,5 @@
 angular.module('sofiaApp', [
   
   'ui.router',
-  'phoneList',
-  'phoneDetail',
-  'phoneCreate'
+  'phone'
 ]);

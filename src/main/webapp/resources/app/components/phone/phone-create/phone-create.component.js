@@ -1,28 +1,18 @@
 'use strict';
 
-angular.
-module('phoneCreate').factory('phoneCreateFactory', ['$resource', function($resource) { 
-	
-	return {
-		save: function(phone) {	    	
-	    	return $resource('/phone/create').save(phone);			
-	    }
-	};
-}]);
-
 
 angular.
-module('phoneCreate').component('phoneCreate', {
-	   templateUrl:'resources/components/phone-create/phone-create.template.html',
-	   controller: ['phoneCreateFactory', '$stateParams', '$scope', '$state',
-	                function PhoneCreateController(phoneCreateFactory, $stateParams, $scope, $state) {
+module('phone').component('phoneCreate', {
+	   templateUrl:'resources/app/components/phone/phone-create/phone-create.template.html',
+	   controller: ['phoneFactory', '$stateParams', '$scope', '$state',
+	                function PhoneCreateController(phoneFactory, $stateParams, $scope, $state) {
 		   				
 					    var self = this;
 				        
 		   			    // function to process the form
 		   			    $scope.processForm = function() {
 		   			        
-							var result = phoneCreateFactory.save({id:$scope.id, name:$scope.name, 
+							var result = phoneFactory.save({id:$scope.id, name:$scope.name, 
 													 snippet : $scope.snippet,
 													 imageUrl : $scope.imageUrl});
 							
