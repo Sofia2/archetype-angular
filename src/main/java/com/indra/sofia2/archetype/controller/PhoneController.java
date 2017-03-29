@@ -54,8 +54,9 @@ public class PhoneController {
 					produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public  @ResponseBody Map<String, Boolean> delete (@AuthenticationPrincipal CustomUser user, @PathVariable(value="id")String id) {		
 	
-		return Collections.singletonMap("deleted", false);
-		//phoneService.getPhone(user.getSessionKey(), id).getPhone();
+		boolean deleted = phoneService.delete(user.getSessionKey(), id);
+		return Collections.singletonMap("deleted", deleted);
+		
 	}
 
 }

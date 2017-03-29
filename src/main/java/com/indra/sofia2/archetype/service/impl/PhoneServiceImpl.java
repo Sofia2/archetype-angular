@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.indra.sofia2.archetype.service.KpiService;
 import com.indra.sofia2.archetype.service.PhoneService;
+import com.indra.sofia2.archetype.service.bean.kpi.request.KpiDeleteRequest;
 import com.indra.sofia2.archetype.service.bean.kpi.request.KpiInsertRequest;
 import com.indra.sofia2.archetype.service.bean.kpi.request.KpiQueryRequest;
 import com.indra.sofia2.archetype.service.bean.kpi.response.KpiResponse;
@@ -136,6 +137,27 @@ public class PhoneServiceImpl implements PhoneService{
 		} 
 		
 		return created;
+	}
+
+	@Override
+	public boolean delete(String sessionKey, String id) {
+		
+		PhoneWrapper phone = getPhone(sessionKey, id);
+		boolean deleted = false;
+		logger.info("delete phone with id " + id);
+		
+		if (phone != null){
+			
+			Gson gson = new Gson();			
+			String data = gson.toJson(phone);
+			KpiResponse responseQuery = kpiService.delete(new KpiDeleteRequest(sessionKey, phoneKpiOntologyName, data));
+		
+			logger.info("query result: " + responseQuery.getData());
+			
+			deleted = true;
+		}
+		
+		return deleted;
 	}
 
 }

@@ -32,5 +32,14 @@ public interface PhoneService {
 	 */
 	
 	boolean create (String sessionKey, PhoneWrapper phone);
+	
+	/**
+	 * Delete a phone
+	 * @param sessionKey
+	 * @param id
+	 * @return
+	 */
+	
+	boolean delete (String sessionKey, String id);
 
 }
