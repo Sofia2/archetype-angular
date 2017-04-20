@@ -32,15 +32,15 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <script src="/resources/app/components/phone/phone.module.js"></script>
-    <script src="/resources/app/components/phone/shared/phone.factory.js"></script>
+    <script src="/app/components/phone/phone.module.js"></script>
+    <script src="/app/components/phone/shared/phone.factory.js"></script>
     
-    <script src="/resources/app/components/phone/phone-list/phone-list.component.js"></script>    
-    <script src="/resources/app/components/phone/phone-detail/phone-detail.component.js"></script>    
-    <script src="/resources/app/components/phone/phone-create/phone-create.component.js"></script>
+    <script src="/app/components/phone/phone-list/phone-list.component.js"></script>    
+    <script src="/app/components/phone/phone-detail/phone-detail.component.js"></script>    
+    <script src="/app/components/phone/phone-create/phone-create.component.js"></script>
     
-    <script src="/resources/app.module.js"></script>
-    <script src="/resources/app.config.js"></script>
+    <script src="/app.module.js"></script>
+    <script src="/app.config.js"></script>
     
     <style>
     	.icon-bar {

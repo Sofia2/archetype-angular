@@ -3,7 +3,7 @@
 
 angular.
 module('phone').component('phoneDetail', {
-	   templateUrl:'resources/app/components/phone/phone-detail/phone-detail.template.html',
+	   templateUrl:'app/components/phone/phone-detail/phone-detail.template.html',
 	   controller: ['phoneFactory', '$stateParams', '$scope', '$state', 
 	                function PhoneDetailController(phoneFactory, $stateParams, $scope, $state) {
 		   				

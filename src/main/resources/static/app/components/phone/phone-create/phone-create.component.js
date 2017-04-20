@@ -3,7 +3,7 @@
 
 angular.
 module('phone').component('phoneCreate', {
-	   templateUrl:'resources/app/components/phone/phone-create/phone-create.template.html',
+	   templateUrl:'app/components/phone/phone-create/phone-create.template.html',
 	   controller: ['phoneFactory', '$stateParams', '$scope', '$state',
 	                function PhoneCreateController(phoneFactory, $stateParams, $scope, $state) {
 		   				

@@ -14,7 +14,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter  {
     public ViewResolver getViewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 	    viewResolver.setViewClass(JstlView.class);
-	    viewResolver.setPrefix("/WEB-INF/");
+	    viewResolver.setPrefix("/WEB-INF/jsp/");
 	    viewResolver.setSuffix(".jsp");
 	    return viewResolver;
     }
